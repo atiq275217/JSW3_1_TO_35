@@ -1551,11 +1551,397 @@ function vDatapi_3() {
 // =====/JavaScript Form Validation======
 
 // =========JavaScript Objects===========
+// ======JavaScript for...in Loop====
+var txt = "";
+var pErson = {fname:"Atiqur", lname:"Rahman", age:25};
+var x;
+for(x in pErson){
+	txt += pErson[x]+ " ";
+}
+document.getElementById('obJect_36').innerHTML = txt;
+// =====Adding New Properties====
+var prs = {
+	frname:"Masum",
+	lsname:"Billah",
+	age:25,
+}
+prs.nationality = "Bangladeshi";
+document.getElementById('obJect_36_2').innerHTML =
+"My Name is "+prs.frname+" "+prs.lsname+" And I'm a "+prs.nationality+".";
+
+// ==Deleting Properties==
+var ps ={
+	frtname:"Masum",
+	lastname:"Billah",
+	age:25,
+	ayecolor:"blue"
+};
+delete ps.age;
+document.getElementById('obJect_36_3').innerHTML =
+ps.frtname+" is "+ps.age+" years old";
+
+// ======JavaScript Object Methods========
+var pRs={
+	fisrtN:"Masum",
+	lastN:"Billah",
+	age:26,
+	ayecolor:"black",
+fuLLName : function(){
+	return this.fisrtN + " " + this.lastN;
+}
+};
+document.getElementById('obJect_36_4').innerHTML =pRs.fuLLName();
+//Or
+var pRsOn={
+	fisrtN:"Masum",
+	lastN:"Billah",
+	age:26,
+	ayecolor:"black and white",
+};
+pRsOn.flAd = function(){
+	return "My name is "+ this.fisrtN+" "+this.lastN + " And my age is "+this.age;
+
+}
+document.getElementById('obJect_36_5').innerHTML =
+pRsOn.flAd()+" And My Ayecolor is "+pRsOn.ayecolor;
+// ========JavaScript Object Accessors========
+       // ======JavaScript Getter (The get Keyword)==
+
+var work={
+	masum:"Morning 10 to 5",
+	billah:"evening 5 to 7",
+
+get herTime(){
+	return this.masum;
+}
+};
+document.getElementById('obJect_36_6').innerHTML ="<i style=color:red;>Masum work time is</i> "+ work.herTime;
+// ===JavaScript Setter (The set Keyword)==
+var x ={
+	a:"Banana",
+	b:"Aple",
+	c: "Mango",
+set iTem(value){
+	this.c = value;
+}
+};
+//set a property using set:
+x.iTem = "Rice";
+document.getElementById('obJect_36_7').innerHTML = x.c;
+// ======Data Quality=======
+var xy ={
+	a:"Banana",
+	b:"Aple",
+	c: "Mango",
+get fuRits(){
+	return this.c.toUpperCase();
+}
+};
+document.getElementById('obJect_36_8').innerHTML = xy.fuRits;
+
+// ======JavaScript Object Constructors========
+  //Constructor function for person objects:
+function myFather (first, last, age, eye){
+	this.fName = first;
+	this.lName = last;
+	this.olDage = age;
+	this.eyecolOr = eye;
+}
+  //Create a person object
+var fatherName = new myFather("Mukhlesur", "Rahman", 75, "black and white");
+ //display age
+document.getElementById('obJect_36_9').innerHTML =
+"My father is "+fatherName.olDage;
+//Or
+function myFatherAndmyMother (first, last, age, eye){
+	this.fName = first;
+	this.lName = last;
+	this.olDage = age;
+	this.eyecolOr = eye;
+}
+  //Create two person Objects
+var mYfather = new myFatherAndmyMother ("Mukhlesur", "Rahman", 75, "black and white");
+var mYmother = new myFatherAndmyMother ("Abeda", "Begum", 62, "Black and white");
+ //Display fname and lname
+document.getElementById('obJect_36_10').innerHTML=
+"My father name is "+ mYfather.fName+" "+mYfather.lName+" . My mother name is "+mYmother.fName+" "+mYmother.lName;
+
+//Adding a Method to an Object
+function myFatherAndmyMother (first, last, age, eye){
+	this.fName = first;
+	this.lName = last;
+	this.olDage = age;
+	this.eyecolOr = eye;
+}
+	//Create two person Objects
+var mYfather = new myFatherAndmyMother ("Mukhlesur", "Rahman", 75, "black and white");
+var mYmother = new myFatherAndmyMother ("Abeda", "Begum", 62, "Black and white");
+	// Add a name method to first object
+mYfather.namE = function(){
+	return this.fName+ " "+this.lName;
+};
+document.getElementById('obJect_36_11').innerHTML = 
+"<b style=color:red;>My father name is</b> "+ mYfather.namE();
+
+   // ===Built-in JavaScript Constructors==
+var x1 = {};    // object
+var x2 = "";    // string 
+var x3 = 0;     // number
+var x4 = false;   // boolean
+var x5 = [];    // object (not array)
+var x6 = /()/;    // object
+var x7 = function(){};  // function
+
+	// Display the type of all
+document.getElementById("obJect_36_12").innerHTML =
+"{}: == " + typeof x1 + "<br>" +
+'"": == '  + typeof x2 + "<br>" +
+"0: == " + typeof x3 + "<br>" +
+"false: == " + typeof x4 + "<br>" +
+"[ ]: == " + typeof x5 + "<br>" +
+"/()/: == " + typeof x6 + "<br>" +
+"function(){}: == " + typeof x7 + "<br>";
 
 
-
+// ========Object.defineProperty()========
+var x ={
+	kola:"5 hali",
+	am: "3 hali",
+	lebu: "2 hali",
+};
+  //Add a property
+Object.defineProperty(x, "mula", {value:"8 hali"})
+document.getElementById('obJect_36_13').innerHTML = x.mula;
 
 // ============/.JavaScript Objects=========
+
+// ================JavaScript Function Definitions============
+
+var x = "<b style=color:red;>function</b> <i>functionName</i> (<i>parameters</i>) {<br> // code to be executed <br> }";
+document.getElementById('function_37').innerHTML = x;
+ //==========
+ var x = fct_1(5, 6);
+ 
+ function fct_1(a, b){
+ 	return a * b;
+ }
+document.getElementById('function_37_2').innerHTML = x;
+//============
+/*var a = function (x , y) {return x * y};
+document.getElementById('function_37_3').innerHTML = a(5, 3);
+*/ 
+   //==Or
+var a = function (x , y) {
+	return x * y;
+}
+document.getElementById('function_37_3').innerHTML = a(5, 3);
+//============
+var builFunction = new Function("a", "b", "return a * b"); // Must be 1st letter of function capital litter
+document.getElementById('function_37_4').innerHTML = builFunction(8, 7);
+
+//========arguments.length========
+function fct_3(a,b){
+	return arguments.length;
+}
+document.getElementById('function_37_5').innerHTML = fct_3(2, 3, 5, 8);
+//===========Arrow Functions === ES6
+const x_x = (aa, bb) => aa * bb;
+document.getElementById('function_37_6').innerHTML = x_x(4, 2);
+	// ===Or
+const x_x_x = (ax, ay) =>{return ax * ay};
+document.getElementById('function_37_7').innerHTML = x_x_x(7,3);
+
+	// =========JavaScript Function Parameters========
+var x = "<b style=color:red;>function</b> <i>functionName</i> (<i>parameter1, parameter2, parameter3</i>) {<br><i style=color:green;>// code to be executed</i> <br>}";
+document.getElementById('function_37_8').innerHTML = x;
+
+//============
+function paRametr(x,y){
+	if(y ===undefined){
+		y = 0;
+	}
+	return x * y;
+}
+document.getElementById('function_37_9').innerHTML= paRametr(4);
+  
+  // ==The Arguments Object==
+function findMax(){
+	var i;
+	var maX = -Infinity;
+	for(i = 0; i < arguments.length; i++){
+	if (arguments[i] > maX){
+		maX = arguments[i];
+		}
+	}
+	return maX;
+} 
+document.getElementById('function_37_10').innerHTML = findMax(4, 5, 6);
+
+// ====Sum of all arguments==
+function sumAll(){
+	var i;
+	var sum = 0;
+	for(i = 0; i < arguments.length; i++){
+		sum += arguments[i];
+	}
+	return sum;
+}
+document.getElementById('function_37_11').innerHTML = sumAll(1, 11, 112, 123, 4321, 124);
+
+	// ========JavaScript Function Call=====
+var mYobJect = {
+	a:"Amar Sunar",
+	b:"Bangla",
+	c:function(){
+		return this.a+" "+this.b;
+	}
+}
+d = mYobJect.c();
+document.getElementById('function_37_12').innerHTML = d;
+
+// ==The JavaScript call() Method===
+var x ={
+	fullNaMe: function(){
+		return this.fIrStnaMe + " "+ this.lAsTnaMe;
+	}
+}
+var a = {
+	fIrStnaMe:"Masum",
+	lAsTnaMe:"Billah"
+}
+var b = {
+	fIrStnaMe:"Atiqur",
+	lAsTnaMe:"Rahman"
+}
+var y = x.fullNaMe.call(b);
+document.getElementById('function_37_13').innerHTML = y;
+	// ===The call() Method with Arguments
+var pR={
+	flName: function(x, y){
+		return this.firstName+" "+this.lastName+","+ x + " , "+ y;
+	}
+}
+var m = {
+	firstName:"shekhalu",
+	lastName:"dublu"
+}
+var n = {
+	firstName:"Aple,",
+	lastName:" Mango"
+}
+var z = pR.flName.call(n, " Orange", " Banana");
+document.getElementById('function_37_14').innerHTML = z;
+   // ==JavaScript Function Apply==
+   
+var person_1 = {
+	firstName:"Masum",
+	lastName:"Billah"
+}
+var perSon = {
+	fuLLnamE: function(){
+		return this.firstName + " "+ this.lastName;
+	}
+}
+var x = perSon.fuLLnamE.apply(person_1);
+document.getElementById('function_37_15').innerHTML = x;
+	// ===The apply() Method with Arguments==
+
+var person_2 = {
+	firsTName:"Masum",
+	lasTName:"Billah"
+}
+var peRSon = {
+	fulLnamE: function(person_3, person_4){
+		return this.firsTName + " "+ this.lasTName+ " "+ person_3+" "+person_4;
+	}
+}
+var px = peRSon.fulLnamE.apply(person_2, ["Atiq", "Mamun"]);
+document.getElementById('function_37_16').innerHTML = px;
+	// ==Compared with the call() method:==
+var person_5 = {
+	firsTName:"Masum",
+	lasTName:"Billah"
+}
+var pERSon = {
+	fUlLnamE: function(person_6, person_7){
+		return this.firsTName + " "+ this.lasTName+ " "+ person_6+" "+person_7;
+	}
+}
+var pxp = pERSon.fUlLnamE.call(person_5, "Moshiur", "Mizanur");
+document.getElementById('function_37_17').innerHTML = pxp;
+	// =====JavaScript Closures==
+    // Global Variables
+function GloBal_1(){
+	var x = 5;
+	document.getElementById('function_37_18').innerHTML = x*x;
+}
+// But
+var g = 7;
+function func_GlobAl(){
+	document.getElementById('function_37_19').innerHTML = g*g;
+}
+	// ==A Counter Dilemma==
+ //Initiate counter
+var counter = 0;
+// function to increment counter
+function add(){
+	counter += 1;
+}
+//call add() 3 times
+add();
+add();
+add();
+
+//The counter should now be 3
+document.getElementById('function_37_20').innerHTML = "<i style=color:red;>The counter is </i>"+ counter;
+
+// ========Counting with a local variable===
+ //Function to increment counter
+ function a_DD(){
+ 	var x_counter = 0;
+ 	x_counter += 1;
+ 	return x_counter;
+ }
+  // Trying to increment the counter
+ function func_GloBal_2(){
+ 	document.getElementById('function_37_21').innerHTML = a_DD();
+ }
+	// ============JavaScript Nested Functions====
+function add_plus(){
+	var counter = 0;
+	function plus(){counter +=1;}
+	plus();
+	return counter;
+}
+document.getElementById('function_37_22').innerHTML= add_plus();
+	// ==JavaScript Closures==
+var x = (function (){
+	var counter = 0;
+	return function (){
+		counter += 1;
+		return counter;
+	}
+})();
+function fun_closures(){
+	document.getElementById('function_37_23').innerHTML = x();
+}
+
+
+// ======================/.JavaScript Function Definitions========
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
